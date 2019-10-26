@@ -7,7 +7,7 @@ $first_name = filter_input(INPUT_POST,'first_name');
 if ($first_name == NULL){
     $first_name = filter_input(INPUT_POST,'first_name');
     if($first_name == NULL){
-        $first_name = 'Cannot be empty';
+        $first_name = 'First Name is required! Cannot Be Empty!';
     }
 }
 
@@ -17,7 +17,7 @@ $last_name = filter_input(INPUT_POST,'last_name');
 if ($last_name == NULL){
     $last_name = filter_input(INPUT_POST,'$last_name');
     if($last_name == NULL){
-        $last_name = 'Cannot be empty';
+        $last_name = 'Last Name is required! Cannot Be Empty!';
     }
 }
 
@@ -28,7 +28,7 @@ $birthday = filter_input(INPUT_POST,'birthday');
 if ($birthday == NULL){
     $birthday = filter_input(INPUT_POST,'$birthday');
     if($birthday == NULL){
-        $birthday = 'Cannot be empty';
+        $birthday = 'Birthday is required! Cannot Be Empty!';
     }
 }
 
@@ -39,7 +39,7 @@ $email = filter_input(INPUT_POST,'email');
 if ($email == NULL){
     $email = filter_input(INPUT_POST,'$email');
     if($email == NULL){
-        $email = 'Cannot be empty';
+        $email = 'Email is required! Cannot Be Empty!';
     }
 }
 
@@ -50,13 +50,12 @@ $password = filter_input(INPUT_POST,'password');
 if ($password == NULL){
     $password = filter_input(INPUT_POST,'$password');
     if($password == NULL){
-        $password = 'Cannot be empty';
+        $password = 'Password is required! Cannot Be Empty!';
     }
 }
 
-// Validate and Get the data from the form
 
-
+// Display Data
 
 ?>
 
@@ -84,19 +83,19 @@ if ($password == NULL){
 
 <main>
     <h1>Registration Information</h1>
-    <label>First Name: </label>
+    <label>First Name: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($first_name); ?></span><br>
 
-    <label>Last Name: </label>
+    <label>Last Name: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($last_name); ?></span><br>
 
-    <label>Birthday: </label>
+    <label>Birthday: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($birthday); ?></span><br>
 
-    <label>Email: </label>
+    <label>Email: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($email); ?></span><br>
 
-    <label>Password: </label>
+    <label>Password: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($password); ?></span><br>
 </main>
 </body>

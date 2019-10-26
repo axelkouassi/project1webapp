@@ -1,19 +1,40 @@
 <?php
 
-//User clicks submit
-if(isset($_POST['Login'])){
-    if(empty($_POST['email_address'])){
-        echo "Email Address is required!";
-    }
-    if(empty($_POST['password'])){
-        echo "Password is required!";
-    }
-
-
-}
-
 // Validate and Get the data from the form
 $email_address = filter_input(INPUT_POST,'email_address');
+if ($email_address == NULL){
+    $email_address = filter_input(INPUT_POST,'email_address');
+    if($email_address == NULL){
+        $email_address = 'Email Address is required! Cannot Be Empty!';
+    }
+}
+
+$password = filter_input(INPUT_POST,'password');
+if ($password == NULL){
+    $password = filter_input(INPUT_POST,'password');
+    if($password == NULL){
+        $password = 'Password is required! Cannot Be Empty!';
+    }
+}
+
+
+//User clicks Login (Submit)
+/*if(isset($_POST['Login'])){
+    if(empty($email_address = filter_input(INPUT_POST,'email_address'))){
+        $email_address = filter_input(INPUT_POST,'email_address');
+        $email_address = 'Email Address is required!';
+
+    }
+    if(empty($password = filter_input(INPUT_POST,'password'))){
+        $password = filter_input(INPUT_POST,'password');
+        $password ='Password is required!';
+    }
+
+
+}*/
+
+// Validate and Get the data from the form
+//$email_address = filter_input(INPUT_POST,'email_address');
 /*if ($email_address == NULL){
     $email_address = filter_input(INPUT_POST,'email_address');
     if($email_address == NULL){
@@ -21,19 +42,13 @@ $email_address = filter_input(INPUT_POST,'email_address');
     }
 }*/
 
-$password = filter_input(INPUT_POST,'password');
+//$password = filter_input(INPUT_POST,'password');
 /*if ($password == NULL){
     $password = filter_input(INPUT_POST,'$password');
     if($password == NULL){
         $password = 'Cannot be empty';
     }
 }*/
-
-
-
-
-
-
 
 
 ?>
@@ -62,10 +77,10 @@ $password = filter_input(INPUT_POST,'password');
 
 <main>
     <h1>Login Credentials</h1>
-    <label>Email Address: </label>
+    <label>Email Address: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($email_address); ?></span><br>
 
-    <label>Password: </label>
+    <label>Password: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($password); ?></span><br>
 </main>
 </body>

@@ -7,7 +7,7 @@ $question_name = filter_input(INPUT_POST,'question_name');
 if ($question_name == NULL){
     $question_name = filter_input(INPUT_POST,'question_name');
     if($question_name == NULL){
-        $question_name = 'Cannot be empty';
+        $question_name = 'Question Name is required! Cannot Be Empty!';
     }
 }
 
@@ -17,7 +17,7 @@ $question_body = filter_input(INPUT_POST,'question_body');
 if ($question_body == NULL){
     $question_body = filter_input(INPUT_POST,'question_body');
     if($question_body == NULL){
-        $question_body = 'Cannot be empty';
+        $question_body = 'Question Body is required! Cannot Be Empty!';
     }
 }
 
@@ -27,11 +27,13 @@ $question_skills = filter_input(INPUT_POST,'question_skills');
 if ($question_skills == NULL){
     $question_skills = filter_input(INPUT_POST,'question_skills');
     if($question_skills == NULL){
-        $question_skills = 'Cannot be empty';
+        $question_skills = 'Question Skills is required! Cannot Be Empty!';
     }
 }
 ?>
 
+
+<!--Display Data after validation-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,13 +58,13 @@ if ($question_skills == NULL){
 
 <main>
     <h1>Question Information</h1>
-    <label>Question Name: </label>
+    <label>Question Name: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($question_name); ?></span><br>
 
-    <label>Question Body: </label>
+    <label>Question Body: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($question_body); ?></span><br>
 
-    <label>Quesion Skills: </label>
+    <label>Quesion Skills: </label><span style="color: red; ">*</span>
     <span><?php echo htmlspecialchars($question_skills); ?></span><br>
 </main>
 </body>
