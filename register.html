@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Form</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet'type='text/css'>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Header Menu -->
+
+<nav id="nav_menu">
+    <a href="index.html" class="home">Home</a>
+    <!--<a href="aboutme.html">About Me</a>-->
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="questions.html">Questions</a>
+</nav>
+<main>
+    <h1 id="login_header">Registration Form</h1>
+    <form action="display_registration.php" method="post" id="registration_form">
+        <div id="login_data">
+            <label>First Name</label><span style="color: red; ">*</span><br>
+            <input type="text" name="first_name"><br><br>
+
+            <label>Last Name</label><span style="color: red; ">*</span><br>
+            <input type="text" name="last_name"><br><br>
+
+            <label>Birthday</label><span style="color: red; ">*</span><br>
+            <input type="text" name="birthday"><br><br>
+
+            <label>Email</label><span style="color: red; ">*</span><br>
+            <input type="email" name="email"><br><br>
+
+            <label>Password</label><span style="color: red; ">*</span><br>
+            <input type="password" name="password"><br>
+        </div>
+
+        <div id="login_button"><br><br>
+            <label>&nbsp;</label>
+            <input type="submit" value ="Register"><br>
+        </div>
+    </form>
+</main>
+</body>
+
+</html>

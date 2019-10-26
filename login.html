@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Form</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="login_body">
+
+<!-- Header Menu -->
+
+<nav id="nav_menu">
+    <a href="index.html" class="home">Home</a>
+    <!--<a href="aboutme.html">About Me</a>-->
+    <a href="login.html" class="login_active">Login</a>
+    <a href="register.html">Register</a>
+    <a href="questions.html">Questions</a>
+</nav>
+
+<!-- Main Container -->
+<main id="main_login">
+    <h1 id="login_header">Login Form</h1>
+
+    <!-- Form for PHP -->
+    <form action="display_login.php" method="post" id="login_form">
+        <div id="login_data">
+            <label>Email Address</label><span style="color: red; ">*</span><br>
+            <input type="email" name="email_address"><br><br>
+
+            <label>Password</label><span style="color: red; ">*</span><br>
+            <input type="password" name="password"><br><br><br>
+        </div>
+
+        <div id="login_button">
+            <label>&nbsp;</label>
+            <input type="submit" name="Login" value ="Login"><br>
+        </div>
+    </form>
+</main>
+</body>
+
+</html>

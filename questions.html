@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Questions Form</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet'type='text/css'>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Header Menu -->
+
+<nav id="nav_menu">
+    <a href="index.html" class="home">Home</a>
+    <!--<a href="aboutme.html">About Me</a>-->
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="questions.html">Questions</a>
+</nav>
+
+<main>
+    <h1>New Question Form</h1>
+    <form action="display_questions.php" method="post">
+        <div id="login_data">
+            <label>Question Name</label><span style="color: red; ">*</span><br>
+            <input type="text" name="question_name"><br><br>
+
+            <label>Question Body</label><span style="color: red; ">*</span><br>
+            <textarea name="question_body"></textarea><br><br>
+
+            <label>Questions Skills</label><span style="color: red; ">*</span><br>
+            <input type="text" name="question_skills"><br><br>
+        </div>
+
+        <div id="login_button"><br>
+            <label>&nbsp;</label>
+            <input type="submit" value ="Submit Question"><br>
+        </div>
+    </form>
+</main>
+</body>
+
+</html>
