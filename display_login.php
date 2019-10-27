@@ -4,6 +4,9 @@
 $email_address = filter_input(INPUT_POST,'email_address');
 $password = filter_input(INPUT_POST,'password');
 
+//Declaring and initializing variable to store password length
+$password_length = strlen($password);
+
 //Checking emptiness validation
 
 //Email Emptiness Validation
@@ -13,10 +16,13 @@ if(empty($_POST['email_address'])){
 else {
     $email_address = filter_input(INPUT_POST,'email_address');
     }
-
 //Password Emptiness Validation
 if(empty($_POST['password'])){
     $password = 'Password is required! Cannot Be Empty!';
+}
+//Password length validation
+else if($password_length < 8){
+    $password = 'Invalid password. Password must be at least 8 characters';
 }
 else {
     $password = filter_input(INPUT_POST,'password');
@@ -26,6 +32,9 @@ else {
 if(!filter_var($email_address,FILTER_VALIDATE_EMAIL)){
     $email_address = 'Invalid email format';
 }
+
+
+
 
 ?>
 
