@@ -1,61 +1,54 @@
 <?php
-// Get the data from the form and validate data
 
-// First Name
+// Getting input data from users
 $first_name = filter_input(INPUT_POST,'first_name');
-$first_name = filter_input(INPUT_POST,'first_name');
-if ($first_name == NULL){
+$last_name = filter_input(INPUT_POST,'last_name');
+$birthday = filter_input(INPUT_POST,'birthday');
+$email = filter_input(INPUT_POST,'email');
+$password = filter_input(INPUT_POST,'password');
+
+//Checking emptiness validation
+
+//First Name Emptiness Validation
+if(empty($_POST['first_name'])){
+    $first_name = 'First Name is required! Cannot Be Empty!';
+}
+else {
     $first_name = filter_input(INPUT_POST,'first_name');
-    if($first_name == NULL){
-        $first_name = 'First Name is required! Cannot Be Empty!';
-    }
 }
 
-// Last Name
-$last_name = filter_input(INPUT_POST,'last_name');
-$last_name = filter_input(INPUT_POST,'last_name');
-if ($last_name == NULL){
-    $last_name = filter_input(INPUT_POST,'$last_name');
-    if($last_name == NULL){
-        $last_name = 'Last Name is required! Cannot Be Empty!';
-    }
+//Last Name Emptiness Validation
+if(empty($_POST['last_name'])){
+    $last_name = 'Last Name is required! Cannot Be Empty!';
+}
+else {
+    $last_name = filter_input(INPUT_POST,'last_name');
 }
 
-// Birthday
-$birthday = filter_input(INPUT_POST,'birthday');
-$birthday = filter_input(INPUT_POST,'birthday');
-$birthday = filter_input(INPUT_POST,'birthday');
-if ($birthday == NULL){
-    $birthday = filter_input(INPUT_POST,'$birthday');
-    if($birthday == NULL){
-        $birthday = 'Birthday is required! Cannot Be Empty!';
-    }
+//Birthday Emptiness Validation
+if(empty($_POST['birthday'])){
+    $birthday = 'Birthday is required! Cannot Be Empty!';
+}
+else {
+    $birthday = filter_input(INPUT_POST,'birthday');
 }
 
-// Email
-$email = filter_input(INPUT_POST,'email');
-$email = filter_input(INPUT_POST,'email');
-$email = filter_input(INPUT_POST,'email');
-if ($email == NULL){
-    $email = filter_input(INPUT_POST,'$email');
-    if($email == NULL){
-        $email = 'Email is required! Cannot Be Empty!';
-    }
+//Email Emptiness Validation
+if(empty($_POST['email'])){
+    $email = 'Email Address is required! Cannot Be Empty!';
+}
+else {
+    $email = filter_input(INPUT_POST,'email');
 }
 
-// Password
-$password = filter_input(INPUT_POST,'password');
-$password = filter_input(INPUT_POST,'password');
-$password = filter_input(INPUT_POST,'password');
-if ($password == NULL){
-    $password = filter_input(INPUT_POST,'$password');
-    if($password == NULL){
-        $password = 'Password is required! Cannot Be Empty!';
-    }
+//Password Emptiness Validation
+if(empty($_POST['password'])){
+    $password = 'Password is required! Cannot Be Empty!';
+}
+else {
+    $password = filter_input(INPUT_POST,'password');
 }
 
-
-// Display Data
 
 ?>
 
@@ -83,19 +76,19 @@ if ($password == NULL){
 
 <main>
     <h1>Registration Information</h1>
-    <label>First Name: </label><span style="color: red; ">*</span>
+    <label>First Name: </label>
     <span><?php echo htmlspecialchars($first_name); ?></span><br>
 
-    <label>Last Name: </label><span style="color: red; ">*</span>
+    <label>Last Name: </label>
     <span><?php echo htmlspecialchars($last_name); ?></span><br>
 
-    <label>Birthday: </label><span style="color: red; ">*</span>
+    <label>Birthday: </label>
     <span><?php echo htmlspecialchars($birthday); ?></span><br>
 
-    <label>Email: </label><span style="color: red; ">*</span>
+    <label>Email: </label>
     <span><?php echo htmlspecialchars($email); ?></span><br>
 
-    <label>Password: </label><span style="color: red; ">*</span>
+    <label>Password: </label>
     <span><?php echo htmlspecialchars($password); ?></span><br>
 </main>
 </body>

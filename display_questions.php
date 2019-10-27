@@ -1,35 +1,40 @@
 <?php
-// Get the data from the form and validate
-
-//Question Name
+// Getting input data from users
 $question_name = filter_input(INPUT_POST,'question_name');
-$question_name = filter_input(INPUT_POST,'question_name');
-if ($question_name == NULL){
-    $question_name = filter_input(INPUT_POST,'question_name');
-    if($question_name == NULL){
-        $question_name = 'Question Name is required! Cannot Be Empty!';
-    }
-}
-
-// Question Body
 $question_body = filter_input(INPUT_POST,'question_body');
-$question_body = filter_input(INPUT_POST,'question_body');
-if ($question_body == NULL){
-    $question_body = filter_input(INPUT_POST,'question_body');
-    if($question_body == NULL){
-        $question_body = 'Question Body is required! Cannot Be Empty!';
-    }
-}
-
-//Question Skills
-$question_skills = filter_input(INPUT_POST,'question_skills',FILTER_SANITIZE_SPECIAL_CHARS,FILTER_REQUIRE_ARRAY);
+$question_skills = filter_input(INPUT_POST,'question_skills',
+                                FILTER_SANITIZE_SPECIAL_CHARS,FILTER_REQUIRE_ARRAY);
 $question_skills = filter_input(INPUT_POST,'question_skills');
-if ($question_skills == NULL){
-    $question_skills = filter_input(INPUT_POST,'question_skills');
-    if($question_skills == NULL){
-        $question_skills = 'Question Skills is required! Cannot Be Empty!';
-    }
+
+//Checking emptiness validation
+
+//Question Name Emptiness Validation
+if(empty($_POST['question_name'])){
+    $question_name = 'Question Name is required! Cannot Be Empty!';
 }
+else {
+    $question_name = filter_input(INPUT_POST,'question_name');
+}
+
+//Question Body Emptiness Validation
+if(empty($_POST['question_body'])){
+    $question_body = 'Question Body is required! Cannot Be Empty!!';
+}
+else {
+    $password = filter_input(INPUT_POST,'question_body');
+}
+
+//Password Emptiness Validation
+if(empty($_POST['question_skills'])){
+    $question_skills = 'Question Skills is required! Cannot Be Empty!!';
+}
+else {
+    $question_skills = filter_input(INPUT_POST,'question_skills');
+}
+
+
+
+
 ?>
 
 
@@ -58,13 +63,13 @@ if ($question_skills == NULL){
 
 <main>
     <h1>Question Information</h1>
-    <label>Question Name: </label><span style="color: red; ">*</span>
+    <label>Question Name: </label>
     <span><?php echo htmlspecialchars($question_name); ?></span><br>
 
-    <label>Question Body: </label><span style="color: red; ">*</span>
+    <label>Question Body: </label>
     <span><?php echo htmlspecialchars($question_body); ?></span><br>
 
-    <label>Quesion Skills: </label><span style="color: red; ">*</span>
+    <label>Question Skills: </label>
     <span><?php echo htmlspecialchars($question_skills); ?></span><br>
 </main>
 </body>

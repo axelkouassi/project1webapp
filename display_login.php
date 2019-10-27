@@ -1,58 +1,30 @@
 <?php
 
-// Validate and Get the data from the form
+// Getting input data from users
 $email_address = filter_input(INPUT_POST,'email_address');
-if ($email_address == NULL){
-    $email_address = filter_input(INPUT_POST,'email_address');
-    if($email_address == NULL){
-        $email_address = 'Email Address is required! Cannot Be Empty!';
-    }
-}
-
 $password = filter_input(INPUT_POST,'password');
-if ($password == NULL){
-    $password = filter_input(INPUT_POST,'password');
-    if($password == NULL){
-        $password = 'Password is required! Cannot Be Empty!';
+
+//Checking emptiness validation
+
+//Email Emptiness Validation
+if(empty($_POST['email_address'])){
+    $email_address = 'Email Address is required! Cannot Be Empty!';
     }
-}
-
-
-//User clicks Login (Submit)
-/*if(isset($_POST['Login'])){
-    if(empty($email_address = filter_input(INPUT_POST,'email_address'))){
-        $email_address = filter_input(INPUT_POST,'email_address');
-        $email_address = 'Email Address is required!';
-
-    }
-    if(empty($password = filter_input(INPUT_POST,'password'))){
-        $password = filter_input(INPUT_POST,'password');
-        $password ='Password is required!';
-    }
-
-
-}*/
-
-// Validate and Get the data from the form
-//$email_address = filter_input(INPUT_POST,'email_address');
-/*if ($email_address == NULL){
+else {
     $email_address = filter_input(INPUT_POST,'email_address');
-    if($email_address == NULL){
-        $email_address = 'Cannot be empty';
     }
-}*/
 
-//$password = filter_input(INPUT_POST,'password');
-/*if ($password == NULL){
-    $password = filter_input(INPUT_POST,'$password');
-    if($password == NULL){
-        $password = 'Cannot be empty';
+//Password Emptiness Validation
+if(empty($_POST['password'])){
+    $password = 'Password is required! Cannot Be Empty!';
+}
+else {
+    $password = filter_input(INPUT_POST,'password');
     }
-}*/
-
 
 ?>
 
+<!-- HTML Document-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,11 +49,14 @@ if ($password == NULL){
 
 <main>
     <h1>Login Credentials</h1>
-    <label>Email Address: </label><span style="color: red; ">*</span>
-    <span><?php echo htmlspecialchars($email_address); ?></span><br>
+    <div>
+        <label>Email Address: </label>
+        <span><?php echo htmlspecialchars($email_address); ?></span><br>
 
-    <label>Password: </label><span style="color: red; ">*</span>
-    <span><?php echo htmlspecialchars($password); ?></span><br>
+        <label>Password: </label>
+        <span><?php echo htmlspecialchars($password); ?></span><br>
+    </div>
+
 </main>
 </body>
 </html>

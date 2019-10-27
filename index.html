@@ -20,7 +20,47 @@
 		<a href="questions.html">Questions</a>
 </nav>
 
-<h1> Home Page</h1>
+<h1> Home Page</h1><br>
+
+
+<!--Form-->
+
+<form action="display_index.php" method="post" id="radio_form">
+	<!--Radio Button-->
+	<h1>Radio Button</h1>
+	<div>
+		<input type="radio" name="card_type" value="Visa" id="visa">
+		<label for="visa">Visa</label><br><br>
+
+		<input type="radio" name="card_type" value="Mastercard" id="mastercard">
+		<label for="mastercard">Mastercard</label><br><br>
+
+		<input type="radio" name="card_type" value="Discover" id="discover">
+		<label for="discover">Discover</label><br><br>
+	</div>
+
+	<!--Checkboxes-->
+	<h1>Checkboxes</h1>
+	<div>
+		<input type="checkbox" name="choices[]" value="English" id="eng">
+		<label for="eng">English</label><br><br>
+
+		<input type="checkbox" name="choices[]" value="French" id="fr">
+		<label for="fr">French</label><br><br>
+
+		<input type="checkbox" name="choices[]" value="German" id="ger">
+		<label for="ger">Spanish</label><br><br><br>
+	</div>
+
+
+	<!--Submit Button-->
+	<div id="login_button">
+		<label>&nbsp;</label>
+		<input type="submit" value ="Submit" id="login_submit_button"><br>
+	</div>
+</form>
+
+
 
 </body>
 
