@@ -49,6 +49,11 @@ else {
     $password = filter_input(INPUT_POST,'password');
 }
 
+//Email validation
+if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+    $email = 'Invalid email format';
+}
+
 
 ?>
 
