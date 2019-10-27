@@ -18,7 +18,7 @@ if(empty($_POST['question_name'])){
 }
 //Question Name length validation
 else if($question_name_length < 3){
-    $question_name = 'Question Name must be at least 3 characters';
+    $question_name = 'Question Name must be at least 3 characters!';
 }
 else {
     $question_name = filter_input(INPUT_POST,'question_name');
@@ -31,7 +31,7 @@ if(empty($_POST['question_body'])){
 }
 //Question Body length validation
 else if($question_body_length > 500){
-    $question_body = 'Question Name must be less than 500 characters';
+    $question_body = 'Question Name must be less than 500 characters!';
 }
 else {
     $password = filter_input(INPUT_POST,'question_body');

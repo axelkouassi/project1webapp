@@ -22,7 +22,7 @@ if(empty($_POST['password'])){
 }
 //Password length validation
 else if($password_length < 8){
-    $password = 'Invalid password. Password must be at least 8 characters';
+    $password = 'Invalid password! Password must be at least 8 characters!';
 }
 else {
     $password = filter_input(INPUT_POST,'password');
