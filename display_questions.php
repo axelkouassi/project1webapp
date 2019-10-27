@@ -6,19 +6,32 @@ $question_skills = filter_input(INPUT_POST,'question_skills',
                                 FILTER_SANITIZE_SPECIAL_CHARS,FILTER_REQUIRE_ARRAY);
 $question_skills = filter_input(INPUT_POST,'question_skills');
 
+//Declaring and initializing variable to store quesion name and question body length
+$question_name_length = strlen($question_name);
+$question_body_length = strlen($question_body);
+
 //Checking emptiness validation
 
 //Question Name Emptiness Validation
 if(empty($_POST['question_name'])){
     $question_name = 'Question Name is required! Cannot Be Empty!';
 }
+//Question Name length validation
+else if($question_name_length < 3){
+    $question_name = 'Question Name must be at least 3 characters';
+}
 else {
     $question_name = filter_input(INPUT_POST,'question_name');
 }
 
+
 //Question Body Emptiness Validation
 if(empty($_POST['question_body'])){
     $question_body = 'Question Body is required! Cannot Be Empty!!';
+}
+//Question Body length validation
+else if($question_body_length > 500){
+    $question_body = 'Question Name must be less than 500 characters';
 }
 else {
     $password = filter_input(INPUT_POST,'question_body');
