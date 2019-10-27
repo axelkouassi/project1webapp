@@ -7,6 +7,9 @@ $birthday = filter_input(INPUT_POST,'birthday');
 $email = filter_input(INPUT_POST,'email');
 $password = filter_input(INPUT_POST,'password');
 
+//Declaring and initializing variable to store password length
+$password_length = strlen($password);
+
 //Checking emptiness validation
 
 //First Name Emptiness Validation
@@ -44,6 +47,10 @@ else {
 //Password Emptiness Validation
 if(empty($_POST['password'])){
     $password = 'Password is required! Cannot Be Empty!';
+}
+//Password length validation
+else if($password_length < 8){
+    $password = 'Invalid password! Password must be at least 8 characters!';
 }
 else {
     $password = filter_input(INPUT_POST,'password');
