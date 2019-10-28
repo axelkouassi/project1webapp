@@ -40,10 +40,15 @@ else {
 if(empty($_POST['email'])){
     $email = 'Email Address is required! Cannot Be Empty!';
 }
-//Email validation
+//Email "@" character check
+else if((stripos($email,'@')) === false){
+    $email = 'Password must contain "@"!';
+}
+//Email format validation
 else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     $email = 'Invalid email format';
-}else {
+}
+else {
     $email = filter_input(INPUT_POST,'email');
 }
 
@@ -55,13 +60,7 @@ if(empty($_POST['password'])){
 else if($password_length < 8){
     $password = 'Invalid password! Password must be at least 8 characters!';
 }
-//Password "@" character check
-else if(stripos($password,'@') !== true){
-    $password = 'Password must contain "@"!';
-}
-else {
-    $password = filter_input(INPUT_POST,'password');
-}
+
 
 
 ?>

@@ -13,10 +13,15 @@ $password_length = strlen($password);
 if(empty($_POST['email_address'])){
     $email_address = 'Email Address is required! Cannot Be Empty!';
     }
-//Email validation
+//Email "@" character check
+else if((stripos($email_address,'@')) === false){
+    $email_address = 'Password must contain "@"!';
+}
+//Email format validation
 else if(!filter_var($email_address,FILTER_VALIDATE_EMAIL)){
     $email_address = 'Invalid email format';
-}else {
+}
+else {
     $email_address = filter_input(INPUT_POST,'email_address');
     }
 //Password Emptiness Validation
@@ -31,11 +36,6 @@ else if($password_length < 8){
 else {
     $password = filter_input(INPUT_POST,'password');
     }
-
-
-
-
-
 
 ?>
 
