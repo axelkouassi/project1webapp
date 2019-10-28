@@ -13,7 +13,10 @@ $password_length = strlen($password);
 if(empty($_POST['email_address'])){
     $email_address = 'Email Address is required! Cannot Be Empty!';
     }
-else {
+//Email validation
+else if(!filter_var($email_address,FILTER_VALIDATE_EMAIL)){
+    $email_address = 'Invalid email format';
+}else {
     $email_address = filter_input(INPUT_POST,'email_address');
     }
 //Password Emptiness Validation
@@ -29,10 +32,7 @@ else {
     $password = filter_input(INPUT_POST,'password');
     }
 
-//Email validation
-if(!filter_var($email_address,FILTER_VALIDATE_EMAIL)){
-    $email_address = 'Invalid email format';
-}
+
 
 
 

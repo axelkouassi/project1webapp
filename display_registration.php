@@ -40,7 +40,10 @@ else {
 if(empty($_POST['email'])){
     $email = 'Email Address is required! Cannot Be Empty!';
 }
-else {
+//Email validation
+else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+    $email = 'Invalid email format';
+}else {
     $email = filter_input(INPUT_POST,'email');
 }
 
@@ -58,11 +61,6 @@ else if(stripos($password,'@') !== true){
 }
 else {
     $password = filter_input(INPUT_POST,'password');
-}
-
-//Email validation
-if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-    $email = 'Invalid email format';
 }
 
 
