@@ -24,10 +24,7 @@ if(empty($_POST['password'])){
 else if($password_length < 8){
     $password = 'Invalid password! Password must be at least 8 characters!';
 }
-//Password "@" character check
-else if(stripos($password,'@') !== true){
-    $password = 'Password must contain "@"!';
-}
+
 else {
     $password = filter_input(INPUT_POST,'password');
     }
