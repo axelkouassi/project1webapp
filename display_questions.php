@@ -4,12 +4,13 @@ $question_name = filter_input(INPUT_POST,'question_name');
 $question_body = filter_input(INPUT_POST,'question_body');
 $question_skills = filter_input(INPUT_POST,'question_skills',
                                 FILTER_SANITIZE_SPECIAL_CHARS,FILTER_REQUIRE_ARRAY);
-//Convert string to a comma and space separated array
-$question_skills_String = implode($question_skills, ', ');
 
 //Declaring and initializing variable to store question name and question body length
 $question_name_length = strlen($question_name);
 $question_body_length = strlen($question_body);
+
+//Convert string to a comma and space separated array
+$question_skills_String = implode($question_skills, ', ');
 
 //Checking emptiness validation
 
@@ -17,6 +18,8 @@ $question_body_length = strlen($question_body);
 if(empty($_POST['question_name'])){
     $question_name = 'Question Name is required! Cannot Be Empty!';
 }
+
+
 //Question Name length validation
 else if($question_name_length < 3){
     $question_name = 'Question Name must be at least 3 characters!';
@@ -38,15 +41,28 @@ else {
     $password = filter_input(INPUT_POST,'question_body');
 }
 
+
 //Question Skills Emptiness Validation
 if(empty($_POST['question_skills'])){
     $question_skills = 'Question Skills is required! Cannot Be Empty!';
 }
+//Skills validation - At Least 2 skills must be entered
+else if (sizeof($question_skills) < 2){
+    $question_skills = 'You must enter at least 2 skills!';
+}
 else {
     $question_skills = filter_input(INPUT_POST,'question_skills');
 }
+
+// Validation if string is null
 if($question_skills_String == NULL){
     $question_skills_String = 'Question Skills is required! Cannot Be Empty!';
+}
+else if((stripos($question_skills_String,', ')) === false){
+    $question_skills_String = 'You must enter at least 2 skills!';
+}
+else {
+    $question_skills_String;
 }
 
 
