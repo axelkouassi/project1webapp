@@ -4,9 +4,10 @@ $question_name = filter_input(INPUT_POST,'question_name');
 $question_body = filter_input(INPUT_POST,'question_body');
 $question_skills = filter_input(INPUT_POST,'question_skills',
                                 FILTER_SANITIZE_SPECIAL_CHARS,FILTER_REQUIRE_ARRAY);
-$question_skills = filter_input(INPUT_POST,'question_skills');
+//Convert string to a comma and space separated array
+$question_skills_String = implode($question_skills, ', ');
 
-//Declaring and initializing variable to store quesion name and question body length
+//Declaring and initializing variable to store question name and question body length
 $question_name_length = strlen($question_name);
 $question_body_length = strlen($question_body);
 
@@ -37,13 +38,17 @@ else {
     $password = filter_input(INPUT_POST,'question_body');
 }
 
-//Password Emptiness Validation
+//Question Skills Emptiness Validation
 if(empty($_POST['question_skills'])){
-    $question_skills = 'Question Skills is required! Cannot Be Empty!!';
+    $question_skills = 'Question Skills is required! Cannot Be Empty!';
 }
 else {
     $question_skills = filter_input(INPUT_POST,'question_skills');
 }
+if($question_skills_String == NULL){
+    $question_skills_String = 'Question Skills is required! Cannot Be Empty!';
+}
+
 
 
 
@@ -82,8 +87,12 @@ else {
     <label>Question Body: </label>
     <span><?php echo htmlspecialchars($question_body); ?></span><br>
 
-    <label>Question Skills: </label>
-    <span><?php echo htmlspecialchars($question_skills); ?></span><br>
+    <label>Question Skills Answer: </label>
+    <!-- <label>Question Skills (Array): </label> -->
+    <!--<span></*?php /*echo print_r($question_skills); ?></span><br> -->
+    <!-- <label>Question Skills (String): </label> -->
+    <!-- <span></*?php echo print_r($question_skills); ?*/></span><br> -->
+    <span><?php echo $question_skills_String; ?></span><br>
 </main>
 </body>
 </html>
